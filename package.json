@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "ascii-table3": "^0.9.0",
+    "chalk": "^5.3.0",
+    "inquirer": "9.3.5",
+    "inquirer-press-to-continue": "^1.2.0"
+  }
+}
