@@ -21,17 +21,23 @@ export default class Util {
   }
 
   ValidateArguments(args) {
-    const distinct = [...new Set(args.map(x => x.toLowerCase()))].length;
+    const repeated = args.filter((s => v => s.has(v) || !s.add(v))(new Set))
     if (args.length < 3) {
-      console.log("Se necesitan al menos 3 opciones ejemplo: ");
+      console.log("You need to pass at least 3 arguments to play");
+      console.log("")
+      console.log("Example: node game.mjs rock paper scissors")
       process.exit(1)
     }
     if (!(args.length % 2)) {
-      console.log("You passed 4 arguments, number should be odd: ejemplo: 3");
+      console.log("Arguments should be an odd number, add 1 argument")
+      console.log("")
+      console.log(`Example: node game.mjs ${args.join(" ")} ARG${args.length + 1}`)
       process.exit(1)
     }
-    if (args.length !== distinct) {
-      console.log("Todos deben ser diferentes., ejemplo: ");
+    if (repeated.length) {
+      console.log(`All arguments must be unique, you passed repeated arguments.`)
+      console.log("")
+      console.log(`These are the repeated arguments: ${repeated.join(" ")}`)
       process.exit(1)
     }
   }
