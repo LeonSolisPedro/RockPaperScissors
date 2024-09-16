@@ -7,10 +7,6 @@ export default class Crypto {
   }
 
   GenerateKey() {
-    const letters = ["A", "B", "C", "D", "E", "F", "G", "5", "6", "7", "8", "9"];
-    let key = ""
-    for (const letter of letters)
-      key += letters[Math.floor(Math.random() * letters.length)];
-    return key
+    return crypto.randomBytes(32).toString('hex')
   }
 }
